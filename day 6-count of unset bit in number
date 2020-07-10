@@ -1,0 +1,27 @@
+package datastructures;
+
+import java.io.*;
+import java.util.Scanner; 
+public class countofunsetbit {
+	public static int countnounsetbits(int n) 
+	{ 
+		if (n == 0) 
+			return 0; 
+		else if((n & 1) == 1)
+			return 0 + countnounsetbits( n >> 1 );
+		else 
+			return 1 + countnounsetbits( n >> 1 );
+		
+	} 
+	public static void main(String[] args) 
+	{ 
+
+		 
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		System.out.println(countnounsetbits(n)); 
+	} 
+} 
+
+
+
