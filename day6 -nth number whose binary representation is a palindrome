@@ -1,0 +1,68 @@
+package datastructures;
+
+import java.io.*;
+import java.util.Scanner; 
+public class countofunsetbit {
+	static int INT_MAX = 2147483647;
+	public static long reverseBits(long n) 
+    { 
+        long rev = 0; 
+  
+        while (n > 0)  
+        { 
+            
+            rev <<= 1; 
+  
+            if ((n & 1) == 1) 
+                rev ^= 1; 
+  
+            
+            n >>= 1; 
+        } 
+ 
+        return rev; 
+    } 
+  
+	
+	static int NthPalindrome(int n) 
+	{ 
+	    int palcount = 0; 
+	  
+	   
+	    int i = 0; 
+	    int t=n;
+		
+		
+	    for (i = 1; i <= INT_MAX; i++)  
+	    { 
+	    	long rev = reverseBits(i); 
+	    	if(i == rev)  
+	        { 
+	    		//System.out.println("Palindrome"+i);
+	            palcount++; 
+	            //System.out.println(palcount);
+	        } 
+	          
+	        
+	        if (palcount == n) 
+	            break; 
+	    } 
+	  
+	    return i; 
+	} 
+	
+	public static void main(String[] args) 
+	{ 
+
+		 
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		
+		System.out.println(NthPalindrome(n));
+		
+		
+	} 
+} 
+
+
+
