@@ -1,0 +1,63 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class dividewithoutdivideoperator {
+	public static int divide(int dividend, int divisor) {
+		 if (dividend == 0) 
+	            return 0; 
+	        if (divisor == 0) 
+	            return Integer.MAX_VALUE; 
+	        int negative=0;
+	        if (dividend < 0) 
+	        { 
+	        	dividend = -dividend ; 
+	        	negative++;
+	        	
+	            if (divisor < 0) 
+	            {
+	            	divisor = - divisor ;  
+	            negative++;
+	            }
+	            
+	        } 
+	        else if (divisor < 0) 
+	        { 
+	        	divisor= - divisor ; 
+	        	negative++;
+	              
+	        } 
+		int sum = 0, count = -1;
+
+		while(sum <= dividend) {
+			System.out.print("*"+sum);
+
+		sum += divisor;
+
+		count++;
+
+		}
+		
+		
+		if(negative==1)
+		{
+			count=-count;
+			
+			
+		}
+		
+
+		return count;
+		
+
+		}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the numbers");
+		int num1=sc.nextInt(); 
+		int num2=sc.nextInt();
+        System.out.println( divide(num1, num2));
+
+	}
+
+}
