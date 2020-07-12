@@ -1,0 +1,24 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class mostsignificantbit {
+	
+	public static int msb(int n)
+	{
+		n=n & ~ (n -1);
+ 
+        
+        return n; 
+		
+		
+	}
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the number");
+		int num=sc.nextInt(); 
+		System.out.println(msb(num)); 
+
+	}
+
+}
