@@ -1,0 +1,93 @@
+package datastructures;
+
+
+import java.util.*;
+
+public class covid19infectedperson {
+	public static int countinfected(int n,int arr[][],int rows,int columns)
+	{
+		  int count=0;
+        for(int i=0; i<rows;i++)
+         {            
+            for(int j=0; j<columns;j++)
+            {
+               if( arr[i][j]==n)
+               {
+                   if(i!=0&&j!=0)
+                   {
+                     
+            	   if(arr[i-1][j-1]<18||arr[i-1][j-1]>50)
+            	   {count++;}
+                   
+            	    if(arr[i-1][j]<18||arr[i-1][j]>50)
+            	   {count++;}
+            	   if(i!=rows-1)
+            	   {
+            	   if(arr[i+1][j-1]<18||arr[i+1][j-1]>50)
+            	   {count++;}
+            	   }
+            	   if(arr[i][j-1]<18||arr[i][j-1]>50)
+            	   {count++;}
+            	   if(j!=columns-1)
+            	   {
+            	   if(arr[i-1][j+1]<18||arr[i-1][j+1]>50)
+             	   { 
+             	   count++;}
+            	   }
+            	   
+                   }
+                   
+                   if(i!=rows-1)
+            	   {
+            	    if(arr[i+1][j]<18||arr[i+1][j]>50)
+            	   {count++;}
+            	    
+            	   }
+            	   if(j!=columns-1&&i!=rows-1)
+            	    {
+            	    if(arr[i+1][j+1]<18||arr[i+1][j+1]>50)
+             	   {
+             	   count++;}
+            	    }
+            	    if(j!=columns-1)
+            	    {
+             	    
+            	    
+             	   if(arr[i][j+1]<18||arr[i][j+1]>50)
+             	   { 
+             	   count++;}
+            	    }
+
+               }
+            }
+         }
+		return count;
+		
+	}
+	
+
+	  public static void main(String args[]){
+	        
+	       System.out.print("Enter array size : ");
+	       Scanner sc=new Scanner(System.in);
+	       int rows=sc.nextInt();
+	       int columns=sc.nextInt();
+	       
+	       System.out.println("Enter array elements : ");    
+	        
+	       int arr[][]=new int[rows][columns];
+	        
+	          
+	        for(int i=0; i<rows;i++)
+	         {            
+	            for(int j=0; j<columns;j++)
+	            {
+	                arr[i][j]=sc.nextInt();
+	            }
+	         }
+	        System.out.println("finished ");    
+	        int infected=sc.nextInt();
+	        int count=countinfected(infected,arr,rows,columns);
+	        System.out.print(count);
+}
+}
