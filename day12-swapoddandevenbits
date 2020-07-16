@@ -1,0 +1,22 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class swapoddandevenbits {
+	
+	static int swapoddandevenbits(int n) 
+    { 
+       
+          
+        // Combine even and odd bits 
+     // Get all even bits of n  // Right shift even bits  // Get all odd bits of n // Left shift even bits 
+        return (((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1)); 
+    } 
+      
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		 System.out.println(swapoddandevenbits(n)); 
+	}
+
+}
