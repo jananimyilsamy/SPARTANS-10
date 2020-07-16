@@ -1,0 +1,36 @@
+package datastructures;
+
+import java.util.Scanner;
+//russian peasant algorithm
+public class multpicationwithoutoperator {
+	
+	public static int multiply(int n1,int n2) 
+	{
+	    int sum=0;
+	    while(n2>0)
+	    {
+	    	
+	    	if((n2&1)!=0)
+	    		sum=sum+n1;
+	    	n1=n1<<1; // double the 1st number
+	    	n2=n2>>1; // half the number  till gets 1
+	    	
+	    }
+		
+		return sum;
+		
+	}
+	
+
+	
+	public static void main(String[] args) 
+	{ 
+
+		 
+		Scanner sc=new Scanner(System.in);
+		int n1=sc.nextInt();
+		int n2=sc.nextInt();
+		System.out.println(multiply(n1,n2)); 
+	} 
+
+}
