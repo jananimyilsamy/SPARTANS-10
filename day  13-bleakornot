@@ -27,7 +27,7 @@ public class Bleakornot {
 		
 	    int t=sc.nextInt();
 	    int n;
-	    while(t--!=0)
+	    while(t-->=0)
 	    {
 	    	 n=sc.nextInt();
 	    
