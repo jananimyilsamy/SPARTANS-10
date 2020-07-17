@@ -1,0 +1,47 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class Bleakornot {
+	public static int countnosetbits(int n) 
+	{ 
+		if (n == 0) 
+			return 0; 
+		else
+			return 1 + countnosetbits(n & (n - 1)); 
+	} 
+	public static boolean isBleak(int n) 
+    { 
+        
+        for (int i = 1; i < n*n; i++) 
+            if (i + countnosetbits(i) == n) 
+                return false; 
+  
+        return true; 
+    } 
+
+	public static void main(String[] args) {
+		
+		 
+		Scanner sc=new Scanner(System.in);
+		
+	    int t=sc.nextInt();
+	    int n;
+	    while(t--!=0)
+	    {
+	    	 n=sc.nextInt();
+	    
+	    
+	   if(isBleak(n))
+	   {
+		   System.out.print("1");
+	   }
+	   else
+	   {
+		   System.out.print("0");
+		   
+	   }
+	    }
+	}
+
+}
