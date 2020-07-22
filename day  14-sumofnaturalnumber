@@ -1,0 +1,20 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class Sumofnaturalnumbers {
+	public static int addNumber(int n) {
+        if (n != 0)
+            return n + addNumber(n- 1);
+        else
+            return n;
+    }
+
+	public static void main(String[] args) {
+  Scanner sc=new Scanner(System.in);
+		
+	    int n=sc.nextInt();
+	    System.out.print( addNumber(n));
+	}
+
+}
