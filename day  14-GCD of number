@@ -1,0 +1,27 @@
+package datastructures;
+
+import java.util.Scanner;
+//Euclidean Algorithm 
+public class GCDofnumber {
+
+	public static void main(String[] args) {
+		 Scanner sc=new Scanner(System.in);
+			
+		    int n1=sc.nextInt();
+		    int n2=sc.nextInt();
+		    System.out.print( GCDofnumbers(n1,n2));
+		    
+
+	}
+
+	public static int GCDofnumbers(int n1, int n2) {
+	
+		      if (n2 == 0) 
+		        return n1; 
+		      return GCDofnumbers(n2, n1 % n2);  
+		      // subtracting repeatedly the larger of two, we end up with GCD.
+		      //reduce larger number using module operator
+		    
+	}
+
+}
