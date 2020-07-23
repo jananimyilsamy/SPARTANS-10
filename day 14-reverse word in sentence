@@ -1,0 +1,23 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class Reversestring {
+
+	public static void main(String[] args) {
+		 Scanner sc=new Scanner(System.in);
+			String sentence=sc.nextLine();
+			 System.out.print( reverse(sentence));
+
+	}
+
+	 public static String reverse(String str){ 
+	     if(str.lastIndexOf(" ")==-1)
+	     { return str;  }
+           return str.substring(str.lastIndexOf(" ")+1) + " " + 
+	    reverse(str.substring(0, str.lastIndexOf(" "))); 
+	     }
+		
+	}
+
+
