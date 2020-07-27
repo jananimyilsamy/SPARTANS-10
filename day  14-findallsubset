@@ -1,0 +1,36 @@
+package datastructures;
+
+import java.util.Scanner;
+
+
+import java.io.IOException; 
+
+public class Findallsubset
+{ 
+	
+	static void printSubsets(char a[]) 
+	{ 
+		int n = a.length; 
+	
+		for (int i = 0; i < (1<<n); i++) 
+		{ 		
+			for (int j = 0; j < n; j++) 
+
+				
+				if ((i & (1 << j)) > 0) 
+					System.out.print(a[j] + " "); 
+
+			System.out.println(); 
+		} 
+	} 
+
+	
+	public static void main(String[] args) 
+	{ 
+		Scanner sc=new Scanner(System.in);
+		String set=sc.next();
+		char a[] = set.toCharArray();; 
+		printSubsets(a); 
+	} 
+} 
+
