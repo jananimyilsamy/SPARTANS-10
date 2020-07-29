@@ -1,0 +1,47 @@
+package datastructures;
+import java.util.Scanner;
+public class Permutation {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		String word=sc.next();
+		int end=word.length();
+		permutation(word,0,end);
+		
+
+	}
+
+	public static void permutation(String word, int start, int end) {
+		if( start==end-1)
+		{
+			System.out.println(word);
+		}
+		else
+		{
+			for(int i=start;i<end;i++)
+			{
+				
+				word=swapforstring(word,start,i);
+				
+				permutation(word,start+1,end);//Recursively calling function Permutation()
+				
+				word=swapforstring(word,start,i); //Backtracking and swapping the characters again.  
+			}
+		}
+		
+	}
+
+	public static String swapforstring(String word, int start, int end) {
+		
+		char a[]=word.toCharArray();
+		
+		char temp;
+		temp=a[start];
+		a[start]=a[end];
+		a[end]=temp;
+		
+		return String.valueOf(a);
+		
+	}
+
+}
