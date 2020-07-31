@@ -1,0 +1,31 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class Longestsubstringlength {
+	
+	    public static int lengthOfLongestSubstring(String s) {
+	        int n = s.length(), ans = 0;
+	        int[] index = new int[128]; // current index of character
+	        // try to extend the range [i, j]
+	        for (int j = 0, i = 0; j < n; j++) {
+	        	 
+	            i = Math.max(index[s.charAt(j)], i);
+	            //System.out.println( " &"+index[s.charAt(j)]);
+	            ans = Math.max(ans, j - i + 1);
+	            //System.out.println("*"+ans);
+	            index[s.charAt(j)] = j + 1;
+	           // System.out.println( i));
+	        }
+	        return ans;
+	    }
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		
+		System.out.println(lengthOfLongestSubstring(s));
+		
+	}
+
+}
