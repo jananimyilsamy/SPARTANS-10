@@ -1,0 +1,95 @@
+package datastructures;
+
+import java.util.Scanner;
+
+public class linkedlistusingrecursion {
+
+	
+		
+	static class Node 
+	{ 
+		int data; 
+		Node next; 
+	}; 
+
+	
+	static Node newNode(int data) 
+	{ 
+		Node newnode;
+		newnode= new Node(); 
+		newnode.data = data; 
+		newnode.next = null; 
+		return newnode; 
+	} 
+
+	
+	static Node insertEnd(Node head,Node temp, int data,int count,int index) 
+	{ 
+		
+		if ((head== null) )
+			return newNode(data); 
+		else if (index<1)
+		{
+			System.out.print("invalid position");
+			return head;
+		}
+		else if(index==0)
+		  {
+			Node newnode=newNode(data);
+		    newnode.next=head;
+		    head=newnode;
+		    return head;
+		  }
+		else if(count==index)
+		{
+			Node newnode=newNode(data);
+			newnode.next=temp.next;
+		    temp.next=newnode;
+		    return head;
+			
+			
+		}
+		
+		else
+		{
+			System.out.println(count+" "+index);
+			return insertEnd(head, temp.next, data,count+1,index);
+		}
+		  
+	} 
+
+	static void traverse(Node head) 
+	{ 
+		if (head == null) 
+		return; 
+		
+		System.out.print( head.data + " "); 
+
+		traverse(head.next); 
+	} 
+
+
+	public static void main(String args[]) 
+	{ 
+		 
+		int i=1;
+		Scanner sc=new Scanner(System.in);
+		 Node head = newNode(9);
+		  head.next = newNode(9);
+		  head.next.next = newNode(9);
+		  head.next.next.next = newNode(9);
+		  
+	        
+		int index=sc.nextInt();
+		
+		int data=sc.nextInt();
+		
+		
+		
+		
+		head = insertEnd(head,head, data,i,index);
+		traverse(head); 
+	} 
+	} 
+
+	
