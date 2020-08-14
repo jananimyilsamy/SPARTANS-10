@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-import datastructures.linkedlist.Node;
+
 
 
 
@@ -57,7 +57,6 @@ public class ElementSumNonZero {
          {
 	     Node node = head1;
 	     Stack<Node> stack = new Stack<>();
-	     boolean check = false;
 	     List<Node> list = new ArrayList<>();
 	     while (node != null) 
 	     {
@@ -68,7 +67,7 @@ public class ElementSumNonZero {
 	        }
 	        else {
 	            int sum = node.data;
-	            check = false;
+	            
 	            while (!stack.isEmpty())
 	            {
 	                Node temp = stack.pop();
@@ -76,17 +75,13 @@ public class ElementSumNonZero {
 	                
 	                if (sum == 0) 
 	                {
-                     check = true;
+                     
 	                    list.clear();
 	                    break;
 	                }
 	                list.add(temp);
 	            }
-	            if (!check)
-	            {
-	                
-	                stack.add(node);
-	            }
+	           
 	        }
 	        node = node.next;
 	     }
