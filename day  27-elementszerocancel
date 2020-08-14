@@ -6,10 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-
-
-
-
 public class ElementSumNonZero {
 
     private static Node head;
@@ -53,7 +49,7 @@ public class ElementSumNonZero {
 
 		traverse(head.next); 
 	} 
-         public static void removeNonZeroElements(Node head1) 
+         public static void removeElements(Node head1) 
          {
 	     Node node = head1;
 	     Stack<Node> stack = new Stack<>();
@@ -109,7 +105,7 @@ public class ElementSumNonZero {
     	}
     	list.traverse(head);
     	System.out.println();
-    	 removeNonZeroElements(head);
+    	 removeElements(head);
         
         
         
