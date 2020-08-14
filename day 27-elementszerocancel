@@ -1,0 +1,125 @@
+package datastructures;
+
+import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
+
+import datastructures.linkedlist.Node;
+
+
+
+public class ElementSumNonZero {
+
+    private static Node head;
+
+    private static class Node {
+        int data;
+        Node next;
+
+        Node(int d) {
+            data = d;
+            next = null;
+        }
+    }
+    public void push(int newdata) 
+    { 
+       
+        Node newnode = new Node(newdata); 
+       
+        if (head == null) 
+        { 
+            head = new Node(newdata); 
+            return; 
+        } 
+     
+        newnode.next = null; 
+     
+        Node last = head;  
+        while (last.next != null) 
+            last = last.next; 
+  
+        last.next = newnode; 
+        return; 
+    } 
+  
+   static void traverse(Node head) 
+	{ 
+		if (head == null) 
+		return; 
+		
+		System.out.print( head.data + " "); 
+
+		traverse(head.next); 
+	} 
+         public static void removeNonZeroElements(Node head1) 
+         {
+	     Node node = head1;
+	     Stack<Node> stack = new Stack<>();
+	     boolean check = false;
+	     List<Node> list = new ArrayList<>();
+	     while (node != null) 
+	     {
+	        if (node.data > 0)
+	        {
+	        	
+	            stack.push(node);
+	        }
+	        else {
+	            int sum = node.data;
+	            check = false;
+	            while (!stack.isEmpty())
+	            {
+	                Node temp = stack.pop();
+	                sum += temp.data;
+	                
+	                if (sum == 0) 
+	                {
+                     check = true;
+	                    list.clear();
+	                    break;
+	                }
+	                list.add(temp);
+	            }
+	            if (!check)
+	            {
+	                
+	                stack.add(node);
+	            }
+	        }
+	        node = node.next;
+	     }
+	     for (Node i: stack) {
+				System.out.print(i.data+"->");
+			}
+
+	     System.out.println("NULL");
+	   }
+   
+   
+    public static void main(String[] args) {
+        ElementSumNonZero list = new ElementSumNonZero();
+      
+        Scanner sc=new Scanner(System.in);
+    	System.out.println("enter size");
+    	int n=sc.nextInt();
+    	System.out.println("enter elements");
+    	
+    	   
+    	for(int i=0;i<n;i++)
+    	{
+    		list.push(sc.nextInt());
+    		
+    	}
+    	list.traverse(head);
+    	System.out.println();
+    	 removeNonZeroElements(head);
+        
+        
+        
+    }
+
+
+	
+}
